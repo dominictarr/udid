@@ -3,33 +3,37 @@ var fs   = require('fs')
 var sum  = require('sha1sum')
 var join = require('path').join
 
+var IDS = {}
+
 module.exports = function (name) {
+
 
   if(!name)
     throw new Error('provide app name')
 
+  //this should never happen, but just to be sure...
+  if(IDS[name]) return IDS[name]
+
   var id_file = join(process.env.HOME, '.udid-' + name)
-  var UDID
 
-  ;(function () {
+  var UDID = (function () {
 
     try {
-      return UDID = 
-        sum(fs.readFileSync(join(process.env.HOME, '.ssh', 'id_rsa.pub')) + name)
+      return sum(fs.readFileSync(join(process.env.HOME, '.ssh', 'id_rsa.pub')) + name)
     } catch (_) {}
 
     try {
-      return UDID = 
-        fs.readFileSync(id_file)
+      return fs.readFileSync(id_file)
     } catch (_) {}
 
-    module.exports = sum(Date.now())
+    return sum(Date.now())
 
   })()
 
+  IDS[name] = UDID.toString()
   fs.writeFileSync(id_file, UDID)
 
-  return UDID
+  return UDID.toString()
 
 }
 if(!module.parent)

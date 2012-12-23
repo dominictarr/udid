@@ -7,7 +7,8 @@
     "url": "git://github.com/dominictarr/udid.git"
   },
   "dependencies": {
-    "sha1sum": "0.0.1"
+    "sha1sum": "0.0.1",
+    "count-tabs": "~0.1.1"
   },
   "devDependencies": {},
   "scripts": {

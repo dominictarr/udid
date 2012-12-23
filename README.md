@@ -8,7 +8,7 @@ tries the current approaches:
 
   * sha1sum of user's public ssh public key
   * create random uuid and save it in `~/.udid`
-  * create random uuid and save in `localStorage`
+  * on the browser, fallback to [count-tabs](https://github.com/dominictarr/count-tabs)
 
 the only configuration is your app name.
 

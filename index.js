@@ -7,7 +7,6 @@ var IDS = {}
 
 module.exports = function (name) {
 
-
   if(!name)
     throw new Error('provide app name')
 

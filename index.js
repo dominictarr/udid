@@ -1,6 +1,6 @@
 
 var fs   = require('fs')
-var sum  = require('sha1sum')
+var sum  = require('shasum')
 var join = require('path').join
 
 var IDS = {}

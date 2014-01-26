@@ -13,7 +13,7 @@ module.exports = function (name) {
   //this should never happen, but just to be sure...
   if(IDS[name]) return IDS[name]
 
-  var id_file = join(process.env.HOME, '.udid-' + name)
+  var id_file = join(process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'], '.udid-' + name)
 
   var UDID = (function () {
 
